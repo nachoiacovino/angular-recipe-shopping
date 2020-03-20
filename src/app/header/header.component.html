@@ -18,25 +18,15 @@
         <li class="nav-item"><a class="nav-link" href="#">Shopping List</a></li>
       </ul>
 
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Manage
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a href="#" class="dropdown-item">Save data</a>
-            <a href="#" class="dropdown-item">Fetch data</a>
-          </div>
-        </li>
-      </ul>
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn" id="dropdownBasic1" ngbDropdownToggle>
+          Manage
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem>Save data</button>
+          <button ngbDropdownItem>Fetch data</button>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
