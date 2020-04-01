@@ -1,1 +1,19 @@
-<p>recipe-item works!</p>
+<li
+  class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+  (click)="onSelected()"
+>
+  <div>
+    <h5 class="mb-1">{{ recipe.name }}</h5>
+    <p class="mb-1">
+      {{ recipe.description }}
+    </p>
+  </div>
+  <div>
+    <img
+      [src]="recipe.imagePath"
+      class="img-fluid"
+      [alt]="recipe.name"
+      width="40"
+    />
+  </div>
+</li>

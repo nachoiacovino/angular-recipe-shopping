@@ -7,26 +7,11 @@
   <div class="col-sm-12">
     <hr />
     <ul class="list-group">
-      <li
-        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-        *ngFor="let recipe of recipes"
-      >
-        <div>
-          <h5 class="mb-1">{{ recipe.name }}</h5>
-          <p class="mb-1">
-            {{ recipe.description }}
-          </p>
-        </div>
-        <div>
-          <img
-            [src]="recipe.imagePath"
-            class="img-fluid"
-            alt="name"
-            width="40"
-          />
-        </div>
-      </li>
+      <app-recipe-item
+        *ngFor="let recipeEl of recipes"
+        [recipe]="recipeEl"
+        (recipeSelected)="onRecipeSelected(recipeEl)"
+      ></app-recipe-item>
     </ul>
   </div>
-  <app-recipe-item></app-recipe-item>
 </div>
