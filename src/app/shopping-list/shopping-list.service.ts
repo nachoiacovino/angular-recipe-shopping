@@ -14,11 +14,16 @@ export class ShoppingListService {
   constructor() {}
 
   getIngredients() {
-    return this.ingredients.slice();
+    return [...this.ingredients];
   }
 
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
+    this.ingredientsChanged.emit(this.ingredients.slice());
+  }
+
+  addIngredients(ingredients: Ingredient[]) {
+    this.ingredients.push(...ingredients);
     this.ingredientsChanged.emit(this.ingredients.slice());
   }
 }
