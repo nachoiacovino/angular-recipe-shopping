@@ -4,7 +4,7 @@ import { Ingredient } from "../shared/ingredient.model";
 import { ShoppingListService } from "../shopping-list/shopping-list.service";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class RecipesService {
   recipeSelected = new EventEmitter<Recipe>();
@@ -17,7 +17,7 @@ export class RecipesService {
       [
         new Ingredient("Beef", 1),
         new Ingredient("Tomato", 1),
-        new Ingredient("Parsley", 3)
+        new Ingredient("Parsley", 3),
       ]
     ),
     new Recipe(
@@ -27,15 +27,19 @@ export class RecipesService {
       [
         new Ingredient("Chicken", 1),
         new Ingredient("Curry", 1),
-        new Ingredient("Parsley", 3)
+        new Ingredient("Parsley", 3),
       ]
-    )
+    ),
   ];
 
   constructor(private shoppingListService: ShoppingListService) {}
 
   getRecipes() {
     return [...this.recipes];
+  }
+
+  getRecipe(id: number) {
+    return this.recipes[id];
   }
 
   addToShoppingList(ingredients: Ingredient[]) {
