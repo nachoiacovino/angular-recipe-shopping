@@ -11,15 +11,20 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="container-fluid">
-    <a href="#" class="navbar-brand">Recipe Book</a>
+    <a routerLink="/" class="navbar-brand">Recipe Book</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#" (click)="onSelect('recipe')">Recipes</a>
+          <a class="nav-link" routerLink="/recipes" routerLinkActive="active"
+            >Recipes</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" (click)="onSelect('shopping-list')">
-            Shopping List</a
+          <a
+            class="nav-link"
+            routerLink="/shopping-list"
+            routerLinkActive="active"
+            >Shopping List</a
           >
         </li>
       </ul>
