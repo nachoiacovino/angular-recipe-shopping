@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ElementRef,
-  ViewChild,
-  OnDestroy,
-} from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Ingredient } from "src/app/shared/ingredient.model";
 import { ShoppingListService } from "../shopping-list.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
@@ -16,7 +10,7 @@ import { Subscription } from "rxjs";
   styleUrls: ["./shopping-edit.component.scss"],
 })
 export class ShoppingEditComponent implements OnInit, OnDestroy {
-  editForm: FormGroup;
+  shoppingForm: FormGroup;
   subscription: Subscription;
   editMode = false;
   editedItem: Ingredient;
@@ -24,7 +18,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   constructor(private shoppingListService: ShoppingListService) {}
 
   ngOnInit(): void {
-    this.editForm = new FormGroup({
+    this.shoppingForm = new FormGroup({
       name: new FormControl(null, [Validators.required]),
       amount: new FormControl(null, [
         Validators.required,
@@ -37,7 +31,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
         this.editMode = true;
         this.editedItemIndex = index;
         this.editedItem = this.shoppingListService.getIngredient(index);
-        this.editForm.setValue({
+        this.shoppingForm.setValue({
           name: this.editedItem.name,
           amount: this.editedItem.amount,
         });
@@ -51,8 +45,8 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     const newIngredient = new Ingredient(
-      this.editForm.value.name,
-      this.editForm.value.amount
+      this.shoppingForm.value.name,
+      this.shoppingForm.value.amount
     );
     if (this.editMode) {
       this.shoppingListService.updateIngredient(
@@ -63,12 +57,12 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
       this.shoppingListService.addIngredient(newIngredient);
     }
     this.onClear();
-    console.log(this.editForm);
+    console.log(this.shoppingForm);
   }
 
   onClear() {
     this.editMode = false;
-    this.editForm.reset();
+    this.shoppingForm.reset();
   }
 
   onDelete() {
