@@ -5,8 +5,9 @@
     <ul class="list-group">
       <li
         class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-        *ngFor="let ingredient of ingredients"
-        style="cursor: pointer"
+        *ngFor="let ingredient of ingredients; let i = index"
+        style="cursor: pointer;"
+        (click)="editItem(i)"
       >
         <div>
           <p class="mb-1">{{ ingredient.name }} ({{ ingredient.amount }})</p>
