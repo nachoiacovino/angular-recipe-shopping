@@ -57,7 +57,7 @@
           <div
             class="row mb-2"
             *ngFor="
-              let creds of recipeForm.controls.ingredients?.value;
+              let ingredientCtrl of recipeForm.controls.ingredients?.value;
               let i = index
             "
             [formGroupName]="i"

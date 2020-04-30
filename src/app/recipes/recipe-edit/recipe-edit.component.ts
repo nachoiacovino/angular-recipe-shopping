@@ -35,6 +35,9 @@ export class RecipeEditComponent implements OnInit {
     });
   }
 
+  //FormArray
+  // https://stackblitz.com/edit/angular-form-array-example
+
   editRecipe() {
     this.initForm();
     if (this.editMode) {
