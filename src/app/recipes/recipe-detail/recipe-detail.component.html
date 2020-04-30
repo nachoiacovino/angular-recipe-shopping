@@ -24,7 +24,9 @@
           To Shopping List
         </button>
         <button ngbDropdownItem routerLink="edit">Edit Recipe</button>
-        <button ngbDropdownItem>Delete Recipe</button>
+        <button ngbDropdownItem (click)="onDeleteRecipe()">
+          Delete Recipe
+        </button>
       </div>
     </div>
   </div>
